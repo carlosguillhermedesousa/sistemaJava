@@ -26,10 +26,11 @@ public class ProdutoModel {
 	private String categoria;
 	private double preco;
 	private int quantidade;
+	private double lucro;
 	//CONSTRUTOR
 	public ProdutoModel(
 			int id, String nome,String codBarras, String descricao, String categoria, 
-			double preco, int quantidade) {
+			double preco, int quantidade,double lucro) {
 		this.id=id;
 		this.nome=nome;
 		this.codBarras=codBarras;
@@ -37,6 +38,7 @@ public class ProdutoModel {
 		this.descricao = descricao;
 		this.preco=preco;
 		this.quantidade=quantidade;
+		this.lucro=lucro;
 	
 	}
 	//GETTERS
@@ -47,6 +49,7 @@ public class ProdutoModel {
 	public String getCategoria() {return this.categoria;}
 	public double getPreco() {return this.preco;}
 	public int getQuantidade() {return this.quantidade;}
+	public double getLucro() {return this.lucro;}
 
 	//SETTERS
 	public void setID(int id) {this.id=id;}
@@ -56,13 +59,14 @@ public class ProdutoModel {
 	public void setCategoria(String categoria) {this.categoria=categoria;}
 	public void setPreco(double preco) {this.preco=preco;}
 	public void setQuantidade(int quantidade) {this.quantidade=quantidade;}
+	public void setLucro(double lucro) {this.lucro=lucro;}
 
 	public void Salvar() {
 		try(Connection conn = conexao.getConnection();
-				PreparedStatement consulta = conn.prepareStatement("insert into produto (nome,codBarras,descricao,categoria,preco,quantidade) values (?,?,?,?,?,?)");
+				PreparedStatement consulta = conn.prepareStatement("insert into produto (nome,codBarras,descricao,categoria,preco,quantidade,lucro) values (?,?,?,?,?,?,?)");
 				PreparedStatement consultaUpdate = 
 				conn.prepareStatement("update produto set nome=?,codBarras=?,descricao=?,"+
-				"categoria=?, preco=?,quantidade=? where id =?");){
+				"categoria=?, preco=?,quantidade=?, lucro=? where id =?");){
 			//VERIFICA SE EXISTE ID
 			if(this.id>0) {// SE EXISTIR ALTERA SENÃO CADASTRA		
 					consultaUpdate.setString(1,this.nome);
@@ -71,7 +75,8 @@ public class ProdutoModel {
 					consultaUpdate.setString(4,this.categoria);
 					consultaUpdate.setDouble(5,this.preco);
 					consultaUpdate.setInt(6,this.quantidade);
-					consultaUpdate.setInt(7,this.id);
+					consultaUpdate.setDouble(7,this.lucro);
+					consultaUpdate.setInt(8,this.id);
 					consultaUpdate.executeUpdate();
 					//CRIA MENSAGEM
 					Alert mensagem = new Alert(Alert.AlertType.INFORMATION);
@@ -84,6 +89,7 @@ public class ProdutoModel {
 			consulta.setString(4,this.categoria);
 			consulta.setDouble(5,this.preco);
 			consulta.setInt(6,this.quantidade);
+			consulta.setDouble(7,this.lucro);
 			consulta.executeUpdate();
 			
 			//CRIA MENSAGEM
@@ -115,6 +121,7 @@ public class ProdutoModel {
 				this.categoria=resultado.getString("categoria");
 				this.quantidade=resultado.getInt("quantidade");
 				this.preco=resultado.getDouble("preco");
+				this.lucro=resultado.getDouble("lucro");
 				
 			} else {
 				//Mensagem de Produto não Encontrado
@@ -170,7 +177,8 @@ public class ProdutoModel {
 						resultado.getString("descricao"),
 						resultado.getString("categoria"),
 						resultado.getDouble("preco"),
-						resultado.getInt("quantidade")				
+						resultado.getInt("quantidade"),
+						resultado.getInt("lucro")
 						);
 				produtos.add(p);
 			}	

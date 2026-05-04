@@ -3,6 +3,7 @@ module sistema {
 	requires javafx.graphics;
 	requires javafx.fxml;
 	requires java.sql;
+	requires javafx.base;
 	
 	opens application to javafx.base, javafx.graphics, javafx.fxml;
 	opens application.view to javafx.base,javafx.graphics, javafx.fxml;

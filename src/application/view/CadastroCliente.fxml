@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.CadastroClienteController">
+   <children>
+      <TextField fx:id="txtPesquisar" layoutX="32.0" layoutY="70.0" prefHeight="26.0" prefWidth="446.0" promptText="Digite um texto para pesquisar um Cliente" />
+      <Button fx:id="btnBuscar" layoutX="492.0" layoutY="70.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Buscar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtID" disable="true" layoutX="34.0" layoutY="123.0" prefHeight="26.0" prefWidth="70.0" />
+      <TextField fx:id="txtNome" layoutX="117.0" layoutY="123.0" prefHeight="26.0" prefWidth="217.0" />
+      <TextField fx:id="txtFantasia" layoutX="352.0" layoutY="123.0" prefHeight="26.0" prefWidth="230.0" />
+      <TextField fx:id="txtCGC" layoutX="34.0" layoutY="168.0" prefHeight="26.0" prefWidth="117.0" promptText="000000000000000" />
+      <TextField fx:id="txtRG" layoutX="166.0" layoutY="168.0" prefHeight="26.0" prefWidth="98.0" promptText="0000000000000" />
+      <TextField fx:id="txtFone" layoutX="279.0" layoutY="168.0" prefHeight="26.0" prefWidth="102.0" promptText="(00) 00000-0000" />
+      <TextField fx:id="txtEmail" layoutX="394.0" layoutY="168.0" prefHeight="26.0" prefWidth="186.0" />
+      <DatePicker fx:id="dtNascimento" layoutX="33.0" layoutY="213.0" prefHeight="26.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbSexo" layoutX="201.0" layoutY="215.0" prefWidth="150.0" visibleRowCount="2" />
+      <RadioButton layoutX="373.0" layoutY="203.0" mnemonicParsing="false" text="Pessoa Física">
+         <toggleGroup>
+            <ToggleGroup fx:id="pessoa" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="373.0" layoutY="226.0" mnemonicParsing="false" text="Pessoa Jurídica" toggleGroup="$pessoa" />
+      <CheckBox fx:id="cbStatus" layoutX="508.0" layoutY="219.0" mnemonicParsing="false" text="Ativo" />
+      <Label alignment="CENTER" layoutY="22.0" style="-fx-background-color: gray;" text="Cadastro de Cliente" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="104.0" text="ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="104.0" text="Nome / Razão Social">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="352.0" layoutY="104.0" text="Apelido /  Nome Fantasia">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="150.0" text="CPF/CNPJ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="166.0" layoutY="150.0" text="RG/IE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="282.0" layoutY="150.0" text="Telefone">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="205.0" layoutY="194.0" text="Sexo">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="194.0" text="Data Nascimento">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="508.0" layoutY="198.0" text="Status">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="150.0" text="Email">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSalvar" layoutX="502.0" layoutY="252.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Salvar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnExcluir" layoutX="410.0" layoutY="252.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Excluir">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLimpar" layoutX="311.0" layoutY="252.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Limpar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tabClientes" layoutX="62.0" layoutY="217.0" prefHeight="110.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colNome" prefWidth="151.20001220703125" text="Nome/Razão Social" />
+          <TableColumn fx:id="colCGC" minWidth="0.0" prefWidth="110.39996337890625" text="CPF/CNPJ" />
+          <TableColumn fx:id="colRG" prefWidth="74.4000244140625" text="RG / IE" />
+          <TableColumn fx:id="colFone" minWidth="0.0" prefWidth="74.39996337890625" text="Telefone" />
+          <TableColumn fx:id="colEmail" prefWidth="116.7999267578125" text="Email" />
+          <TableColumn fx:id="colDataNasc" prefWidth="145.5999755859375" text="Data Nascimento" visible="false" />
+		  <TableColumn fx:id="colFantasia" prefWidth="145.5999755859375" text="Apelido/fantasia" visible="false" />
+		  <TableColumn fx:id="colSexo" prefWidth="145.5999755859375" text="Sexo" visible="false" />
+		  <TableColumn fx:id="colTipo" prefWidth="145.5999755859375" text="Tipo" visible="false" /> 
+		  <TableColumn fx:id="colStatus" prefWidth="145.5999755859375" text="Status" visible="false" /> 
+          
+        </columns>
+      </TableView>
+      <Label layoutX="35.0" layoutY="52.0" text="Buscar Cliente">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

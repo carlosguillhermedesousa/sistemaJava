@@ -29,6 +29,7 @@ public class CadastroProdutoController {
     @FXML private TextField txtNome;
     @FXML private TextField txtCodBarras;
     @FXML private TextField txtPreco;
+    @FXML private TextField txtLucro;
     @FXML private TableColumn<ProdutoModel, String> colCategoria;
     @FXML private TableColumn<ProdutoModel, String> colDescricao;
     @FXML private TableColumn<ProdutoModel, Integer> colID;
@@ -36,6 +37,7 @@ public class CadastroProdutoController {
     @FXML private TableColumn<ProdutoModel, String> colCodBarras;
     @FXML private TableColumn<ProdutoModel, Double> colPreco;
     @FXML private TableColumn<ProdutoModel, String> colQtd;
+    @FXML private TableColumn<ProdutoModel, Double> colLucro;
     @FXML private TableView<ProdutoModel> tabProdutos;
     private ObservableList<ProdutoModel> listaProdutos;
     DecimalFormat formatoReal = new DecimalFormat("#,##0.00");
@@ -44,7 +46,7 @@ public class CadastroProdutoController {
     
     
     //CRIANDO O OBJETO
-    ProdutoModel produto= new ProdutoModel(0, null, null, null, null, 0, 0);
+    ProdutoModel produto= new ProdutoModel(0, null, null, null, null, 0, 0, 0);
     //METODO PARA SALVAR O CADASTRO DO PRODUTO
     public void Salvar() {
     	//VERIFICA SE TEM ALGUM CAMPO VAZIO
@@ -67,6 +69,7 @@ public class CadastroProdutoController {
         	produto.setDescricao(txtDescricao.getText());
         	produto.setCategoria(txtCategoria.getText());
         	produto.setPreco(Double.parseDouble(txtPreco.getText().replace(",", ".")));
+        	produto.setLucro(Double.parseDouble(txtLucro.getText().replace(",", ".")));
         	produto.setQuantidade(0);
         	
     		//SALVA PRODUTOS NO BANCO DE DADOS
@@ -79,6 +82,7 @@ public class CadastroProdutoController {
         	txtCategoria.setText("");
         	txtPreco.setText("");
         	txtQuantidade.setText("");
+        	txtLucro.setText("");
     	}    	
     	ListarProdutosTab(null);
 
@@ -98,7 +102,8 @@ public class CadastroProdutoController {
     		txtDescricao.setText(produto.getDescricao());
     		txtCategoria.setText(produto.getCategoria());
     		txtPreco.setText(formatoReal.format(produto.getPreco()));
-    		txtQuantidade.setText(String.valueOf(produto.getQuantidade()));   		
+    		txtQuantidade.setText(String.valueOf(produto.getQuantidade()));
+    		txtLucro.setText(formatoReal.format(produto.getLucro()));
     	} else { // SENÃO BUSCA TODOS OS PRODUTOS
     		//BUSCA TODOS OS PRODUTOS
     		ListarProdutosTab(null);
@@ -112,6 +117,7 @@ public class CadastroProdutoController {
 		txtCategoria.setText("");
 		txtPreco.setText("");
 		txtQuantidade.clear();
+		txtLucro.clear();
 		ListarProdutosTab(null);
     }
     //O METODO INITIALIZE VINCULA DIRETAMENTE O CONTROLE COM O FXML
@@ -126,6 +132,7 @@ public class CadastroProdutoController {
     	colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
     	colPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
     	colQtd.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+    	colLucro.setCellValueFactory(new PropertyValueFactory<>("lucro"));
     	
     	//colocar formato de "000000" na tabela de produtos
     	colID.setCellFactory(c -> new TableCell<ProdutoModel, Integer>() {
@@ -141,6 +148,14 @@ public class CadastroProdutoController {
     	    protected void updateItem(Double preco, boolean empty) {
     	        super.updateItem(preco, empty);
     	        setText(empty || preco == null ? null : new DecimalFormat("#,##0.00").format(preco));
+    	    }
+    	});
+    	
+    	colLucro.setCellFactory(c -> new TableCell<ProdutoModel, Double>() {
+    	    @Override
+    	    protected void updateItem(Double lucro, boolean empty) {
+    	        super.updateItem(lucro, empty);
+    	        setText(empty || lucro == null ? null : new DecimalFormat("#,##0.00").format(lucro));
     	    }
     	});
     	
@@ -162,6 +177,7 @@ public class CadastroProdutoController {
 				txtCategoria.setText(produto.getCategoria());
 				txtQuantidade.setText(String.valueOf(produto.getQuantidade()));
 				txtPreco.setText(formatoReal.format(produto.getPreco()));
+				txtLucro.setText(formatoReal.format(produto.getLucro()));
 				
 			}
 		});

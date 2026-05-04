@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="painelVenda" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.VendaController">
+   <children>
+      <SplitPane dividerPositions="0.4174327545114061" layoutX="54.0" layoutY="108.0" orientation="VERTICAL" prefHeight="589.0" prefWidth="984.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="977.0">
+               <children>
+                  <Button fx:id="btnNovaVenda" layoutX="15.0" layoutY="71.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="114.0" text="F2 - Nova Venda">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="btnHistorico" layoutX="15.0" layoutY="128.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="114.0" text="F3 - Histórico">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <TextField fx:id="txtNomeCliente" disable="true" layoutX="221.0" layoutY="92.0" prefHeight="26.0" prefWidth="226.0" />
+                  <Button fx:id="btnInserirCliente" disable="true" layoutX="461.0" layoutY="93.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="F5 -Inserir" />
+                  <TextField fx:id="txtNomeVendedor" disable="true" layoutX="222.0" layoutY="139.0" prefHeight="26.0" prefWidth="226.0" />
+                  <Button fx:id="btnInserirVendedor" disable="true" layoutX="461.0" layoutY="139.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="F6 - Inserir" />
+                  <TextField fx:id="txtNomeForma" disable="true" layoutX="226.0" layoutY="189.0" prefHeight="26.0" prefWidth="226.0" />
+                  <TextField fx:id="txtValorForma" disable="true" layoutX="461.0" layoutY="189.0" prefHeight="26.0" prefWidth="78.0" />
+                  <Button fx:id="btnInserirForma" disable="true" layoutX="550.0" layoutY="189.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="F7 - Inserir" />
+                  <Button fx:id="btnFinalizar" disable="true" layoutX="15.0" layoutY="182.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="114.0" text="F4 - Finalizar">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Label layoutX="146.0" layoutY="171.0" text="Forma de Pagamento">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="-8.0" layoutY="14.0" style="-fx-background-color: gray;" text="Balcão de Venda" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="499.0" layoutY="171.0" text="Valor">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tabFormaVenda" layoutX="759.0" layoutY="36.0" prefHeight="127.0" prefWidth="372.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="colID" prefWidth="31.200010657310486" text="ID" />
+                      <TableColumn fx:id="colForma" prefWidth="119.19995880126953" text="Forma Pgto" />
+                      <TableColumn fx:id="colValorBruto" prefWidth="77.599853515625" text="Valor Bruto" />
+                        <TableColumn fx:id="colDesconto" prefWidth="48.7999267578125" text="Desc%" />
+                        <TableColumn fx:id="colValorTotal" prefWidth="116.0001220703125" text="Vlr Total" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="txtCodForma" disable="true" editable="false" layoutX="146.0" layoutY="189.0" prefHeight="26.0" prefWidth="62.0" />
+                  <TextField fx:id="txtCodCliente" disable="true" editable="false" layoutX="145.0" layoutY="91.0" prefHeight="26.0" prefWidth="62.0" />
+                  <TextField fx:id="txtCodVendedor" disable="true" editable="false" layoutX="145.0" layoutY="139.0" prefHeight="26.0" prefWidth="62.0" />
+                  <Label layoutX="149.0" layoutY="73.0" text="Cliente">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="149.0" layoutY="121.0" text="Vendedor">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="633.0" layoutY="55.0" text="Total Bruto">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="798.0" layoutY="55.0" text="Desconto">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="927.0" layoutY="55.0" text="Total Liquido ">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblVlrBruto" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="612.0" layoutY="73.0" text="R$ 0,00" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDesconto" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="769.0" layoutY="73.0" text="R$ 0,00" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblValorLiquido" alignment="BASELINE_RIGHT" contentDisplay="RIGHT" layoutX="920.0" layoutY="73.0" text="R$ 0,00" textAlignment="RIGHT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="painelItens" disable="true" minHeight="0.0" minWidth="0.0" prefHeight="337.0" prefWidth="982.0">
+               <children>
+                  <TextField fx:id="txtItem" disable="true" layoutX="32.0" layoutY="56.0" prefHeight="26.0" prefWidth="56.0" />
+                  <TextField fx:id="txtProduto" layoutX="112.0" layoutY="57.0" prefHeight="26.0" prefWidth="326.0" />
+                  <TextField fx:id="txtValorItem" layoutX="453.0" layoutY="56.0" prefHeight="26.0" prefWidth="66.0" />
+                  <TextField fx:id="txtQtdItem" layoutX="528.0" layoutY="56.0" prefHeight="26.0" prefWidth="56.0" />
+                  <TextField fx:id="txtDescontoItem" layoutX="599.0" layoutY="55.0" prefHeight="26.0" prefWidth="66.0" />
+                  <TextField fx:id="txtValorTotalItem" disable="true" layoutX="672.0" layoutY="55.0" prefHeight="26.0" prefWidth="78.0" />
+                  <Button fx:id="btnInserirItem" disable="true" layoutX="761.0" layoutY="55.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="F8 - Incluir Item" />
+                  <Button fx:id="btnExcluirItem" disable="true" layoutX="891.0" layoutY="55.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="F9 - Excluir Item" />
+                  <Label layoutX="112.0" layoutY="33.0" text="Produrto">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="32.0" text="Item">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="455.0" layoutY="32.0" text="Valor">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="528.0" layoutY="33.0" text="Qtde">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="672.0" layoutY="32.0" text="Valor Total">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="599.0" layoutY="32.0" text="Desconto">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="525.0" layoutY="14.0" style="-fx-background-color: gray;" text="Inserir Produtos" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tabItens" layoutX="62.0" layoutY="94.0" prefHeight="234.0" prefWidth="982.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="colItem" prefWidth="88.00001531839371" text="Item" />
+                      <TableColumn fx:id="colIdProduto" prefWidth="81.5999755859375" text="Cód.Produto" />
+                      <TableColumn fx:id="colCodBarras" prefWidth="172.80001831054688" text="Cód.Barras" />
+                      <TableColumn fx:id="colNomeProduto" prefWidth="376.8000183105469" text="Nome Produto" />
+                      <TableColumn fx:id="colValorUn" prefWidth="89.5999755859375" text="Valor UN" />
+                      <TableColumn fx:id="colQtdItem" prefWidth="62.39996337890625" text="Qtd" />
+                      <TableColumn fx:id="colValorTotalItem" prefWidth="108.7999267578125" text="Valor Total" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btnFecharVenda" layoutX="761.0" layoutY="23.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="242.0" text="F10 - Fechar Venda" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <TableView fx:id="tabClientes" layoutX="95.0" layoutY="121.0" prefHeight="98.0" prefWidth="535.0" visible="false">
+         <columns>
+            <TableColumn fx:id="colIDCliente" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colNomeCliente" prefWidth="205.6000518798828" text="Nome Cliente" />
+            <TableColumn fx:id="colFantasiaCliente" prefWidth="116.79998779296875" text="Fantasia" />
+            <TableColumn fx:id="colCGC" prefWidth="134.39996337890625" text="CPF/CNPJ" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tabVendedor" layoutX="95.0" layoutY="167.0" prefHeight="98.0" prefWidth="535.0" visible="false">
+         <columns>
+            <TableColumn fx:id="colIDVendedor" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="colNomeVendedor" prefWidth="453.6000518798828" text="Nome" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tabFormaPgto" layoutX="96.0" layoutY="218.0" prefHeight="98.0" prefWidth="535.0" visible="false">
+        <columns>
+          <TableColumn prefWidth="75.0" text="ID" />
+          <TableColumn prefWidth="344.8000030517578" text="Descriçao" />
+            <TableColumn prefWidth="111.20001220703125" text="Tipo" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tabInserirProduto" layoutX="34.0" layoutY="336.0" prefHeight="147.0" prefWidth="567.0" visible="false">
+        <columns>
+          <TableColumn fx:id="colInserirProdutoCod" prefWidth="58.399959564208984" text="Código" />
+            <TableColumn fx:id="colInserirProdutoCodBarras" prefWidth="122.4000244140625" text="Cód. Barras" />
+          <TableColumn fx:id="colInserirProdutoNome" prefWidth="296.8000030517578" text="Nome Produto" />
+            <TableColumn fx:id="colInserirProdutoValor" prefWidth="84.0" text="Valor" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

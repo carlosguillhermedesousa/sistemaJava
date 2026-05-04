@@ -45,7 +45,7 @@ public class ProcessaEstoque {
     private ObservableList<ProdutoModel> listaProdutos;
   
     //CRIANDO O OBJETO
-    ProdutoModel produto= new ProdutoModel(0, null, null, null, null, 0, 0);
+    ProdutoModel produto= new ProdutoModel(0, null, null, null, null, 0, 0, 0);
     
     @FXML
     public void initialize() {
@@ -155,7 +155,8 @@ public class ProcessaEstoque {
 						resultado.getString("descricao"),
 						resultado.getString("categoria"),
 						resultado.getDouble("preco"),
-						resultado.getInt("quantidade")				
+						resultado.getInt("quantidade"),
+						resultado.getInt("lucro")
 						);
 				produtos.add(p);
 			}	

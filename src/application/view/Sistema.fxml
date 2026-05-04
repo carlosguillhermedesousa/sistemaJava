@@ -3,10 +3,12 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SistemaController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.SistemaController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" />
       <MenuBar StackPane.alignment="TOP_CENTER">
@@ -14,20 +16,29 @@
           <Menu mnemonicParsing="false" text="Inicio">
             <items>
               <MenuItem fx:id="itemSair" mnemonicParsing="false" onAction="#Sair" text="Sair" />
+              <MenuItem fx:id="itemConfiguracao" mnemonicParsing="false"  text="Configuracao" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Cadastros">
             <items>
               <MenuItem fx:id="itemProdutos" mnemonicParsing="false" onAction="#AbrirCadastroProduto" text="Produtos" />
-                  <MenuItem fx:id="itemClientes" mnemonicParsing="false" text="Clientes" />
+              <MenuItem fx:id="itemClientes" mnemonicParsing="false" text="Clientes" />
+              <MenuItem fx:id="itemUsuarios" mnemonicParsing="false" text="Usuários" />
+              <MenuItem fx:id="itemForma" mnemonicParsing="false" text="Forma de Pagamento" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Operações">
             <items>
               <MenuItem fx:id="itemProcessaEstoque" mnemonicParsing="false" text="Processar estoque" />
+              <MenuItem fx:id="itemVenda" mnemonicParsing="false" text="Venda" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
+      <ImageView fitHeight="263.0" fitWidth="457.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Downloads/Inserir%20um%20título.png" />
+         </image>
+      </ImageView>
    </children>
 </StackPane>
